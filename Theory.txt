@@ -1,0 +1,30 @@
+Problem statement 1:
+
+You need to create 1 game where we need to create 1000 Human Robots and 1000 Animal Robots.
+
+- Parameters of Robot are typeOf Robot, Body of Robot , x coordinate and y coordinate
+- Here Type is either Human Robot or Animal Robot
+- Body is same for all robots
+- x and y coordinates are different for all robots.
+
+-Here Type and Body are intrinsic objects means data can be shared among objects ( Here all robots )
+- x,y coordinates are extrinsic objects means data is different for all objects.
+
+Creation of these robot objects will take 31 GB of memory lets say, but we have only 25 GB so how to handle this ?
+
+-->
+
+- Flyweight design pattern helps to solve this. It is structural design pattern
+- We can group all Intrinsic objects in 1 class (Here type and object)
+- For Extrinsic objects create interface and pass these items as a method parameter.
+- Create 1 factory class to create objects. Our aim is to create 2 objects only- 1 for Animal and 1 for Human
+- So in factory we'll create 1 hashmap of type - String, InterfaceRobot
+- We'll first check if object is already present is map if yes return, if not create new and put in map.
+- With the help of object we will render object on screen by passing x and y coordinates.
+
+THIS IS HOW MEMORY WILL BE REDUCED
+
+- Flyweight can be used when 
+* Memory limitation is there
+* We need to share data among objects
+* Object creation is heavy
